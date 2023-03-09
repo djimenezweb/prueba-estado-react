@@ -1,5 +1,15 @@
+import { useState } from 'react';
+
 const App = () => {
-	return <h1>Núcleo de la aplicación</h1>;
+	const [state, setState] = useState('hola');
+
+	console.log(state);
+	return (
+		<>
+			<h1>{state}</h1>
+			<button onClick={() => console.log('clic')}>Click</button>
+		</>
+	);
 };
 
 export default App;
