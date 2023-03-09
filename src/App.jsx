@@ -1,15 +1,31 @@
 import { useState } from 'react';
 
 const App = () => {
-	const [state, setState] = useState('hola');
+	const [counter, setCounter] = useState(0);
 
-	console.log(state);
 	return (
 		<>
-			<h1>{state}</h1>
-			<button onClick={() => console.log('clic')}>Click</button>
+			<h1>{counter}</h1>
+			<button onClick={() => decrease(counter, setCounter)}>-1</button>
+			<button onClick={() => reset(counter, setCounter)}>0</button>
+			<button onClick={() => increase(counter, setCounter)}>+1</button>
 		</>
 	);
+};
+
+const decrease = (counter, setCounter) => {
+	counter--;
+	setCounter(counter);
+};
+
+const increase = (counter, setCounter) => {
+	counter++;
+	setCounter(counter);
+};
+
+const reset = (counter, setCounter) => {
+	counter = 0;
+	setCounter(counter);
 };
 
 export default App;
